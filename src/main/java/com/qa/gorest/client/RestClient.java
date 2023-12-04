@@ -12,6 +12,8 @@ import io.restassured.specification.RequestSpecification;
 
 public class RestClient {
 	
+	
+	//added code here
 	private static RequestSpecBuilder specBuilder;
 	private boolean isAuthorizationHeaderAdded=false;
 	private static final String BASE_URI = "https://gorest.co.in/";

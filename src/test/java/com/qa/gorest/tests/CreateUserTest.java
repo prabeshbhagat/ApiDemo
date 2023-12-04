@@ -27,7 +27,7 @@ public class CreateUserTest {
 
 		System.out.println("User Id :" + user_id);
 
-		// get call
+		// get calling 
 		// RestClient restClientGet= new RestClient(prop, baseURI);
 		restClient.get("/public/v2/users/" + user_id, true, true).then().log().all().assertThat()
 				.statusCode(200).and().body("id", equalTo(user_id));
