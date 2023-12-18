@@ -1,8 +1,9 @@
 package com.qa.gorest.tests;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
+import com.qa.gorest.base.BaseTest;
 import com.qa.gorest.client.RestClient;
 
 import static org.hamcrest.Matchers.*;
@@ -11,11 +12,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class GetUserTest  {
+public class GetUserTest extends BaseTest  {
 	
 	
-	RestClient restClient= new RestClient();
-	
+//	@BeforeMethod
+//	public void setUp() {
+//		restClient= new RestClient(prop, baseURI);
+//	}
+//	
 	
 	//url/public/v2/users?name?status
 	@Test(enabled=true,priority=1)
@@ -28,19 +32,19 @@ public class GetUserTest  {
 	}
 	
 	//url/public/v2/users/1830615?name?status
-	@Test(priority=2)
+	@Test(enabled=true,priority=2)
 	public void getSingleUSerTest() {
-		restClient.get("/public/v2/users/57751212",true, true)
+		restClient.get("/public/v2/users/5371707",true, true)
 				.then()
 				.assertThat().log().all()
 				.statusCode(200)
 				.and()
-				.body("id", equalTo(577512));
+				.body("id", equalTo(5371707));
 
 	}
 	
 	//url?name?status
-	@Test
+	@Test(enabled=true,priority=2)
 	public void getUserWithQueryParamTest() {
 		
 		Map<String,Object> qMap= new HashMap<String,Object>();
