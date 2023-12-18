@@ -138,18 +138,28 @@ public class RestClient {
 		if (log) {
 			return RestAssured.given(createRequestSpec(headersMap, includeAuth)).log().all().when().get(serviceUrl);
 		}
+
 		return RestAssured.given(createRequestSpec(headersMap, includeAuth)).when().get(serviceUrl);
 	}
 
-	public Response get(String serviceUrl, Map<String, String> headersMap, Map<String, Object> queryParamsMap,
-			boolean includeAuth, boolean log) {
-		if (log) {
-			return RestAssured.given(createRequestSpec(headersMap, queryParamsMap, includeAuth)).log().all().when()
-					.get(serviceUrl);
+	
+
+		
+		public Response get(String serviceUrl,Map<String,String> headersMap,Map<String, Object> queryParamsMap,
+				boolean includeAuth,boolean log) {
+			if (log) {
+				 return RestAssured.given(createRequestSpec(headersMap, queryParamsMap,includeAuth)).log().all()
+				.when().
+					get(serviceUrl);
+			}
+			return RestAssured.given(createRequestSpec(headersMap, queryParamsMap,includeAuth)).log().all()
+			.when().
+				get(serviceUrl).andReturn();
+			
+
 		}
-		return RestAssured.given(createRequestSpec(headersMap, queryParamsMap, includeAuth)).log().all().when()
-				.get(serviceUrl);
-	}
+		
+	
 
 	// post call
 	public Response post(String serviceUrl, String contentType, Object requestBody, Map<String, String> headersMap,
