@@ -137,7 +137,8 @@ public class RestClient {
 			}
 			return RestAssured.given(createRequestSpec(headersMap, queryParamsMap,includeAuth)).log().all()
 			.when().
-				get(serviceUrl);
+				get(serviceUrl).andReturn();
+			
 		}
 		
 		//post call
