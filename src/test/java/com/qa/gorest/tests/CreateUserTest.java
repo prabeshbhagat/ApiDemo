@@ -11,8 +11,7 @@ import com.qa.gorest.base.BaseTest;
 import com.qa.gorest.client.RestClient;
 import com.qa.gorest.constants.APIHttpStatus;
 import com.qa.gorest.pojo.User;
-
-import com.qa.gorest.utils.StringUtils;
+import com.qa.test.utils.StringUtils;
 
 public class CreateUserTest extends BaseTest {
 	

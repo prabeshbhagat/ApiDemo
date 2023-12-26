@@ -1,5 +1,17 @@
 package com.qa.gorest.tests;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+
+import org.testng.annotations.Test;
+
+import com.jayway.jsonpath.JsonPath;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 public class jsonMethodTest {
 	
@@ -61,13 +73,7 @@ public class jsonMethodTest {
 		//Get category Name
 		List<String> CategoryNameList = JsonPath.read(responseAsString, "$.[*].category.name");
 		//System.out.println(CategoryNameList);
-<<<<<<< HEAD
-	
-=======
-		
 
-		
->>>>>>> 90e0c1cc19460efd4c23de27938912b40a3f8fdf
 		System.out.println("Count of collected records => "+idList.size());
 		
 			

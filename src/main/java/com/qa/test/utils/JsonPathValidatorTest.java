@@ -1,4 +1,4 @@
-package com.qa.gorest.utils;
+package com.qa.test.utils;
 
 import java.util.List;
 import java.util.Map;
