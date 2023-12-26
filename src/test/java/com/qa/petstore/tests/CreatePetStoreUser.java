@@ -18,9 +18,16 @@ public class CreatePetStoreUser {
 
 	
 	/*
-	 * API details : https://petstore.swagger.io/v2/user
-	 * POST : Create user 
-	 */
+	 * API details 	: https://petstore.swagger.io/v2/user
+	 * POST 		: Create user 
+	 * Scenario 1	: Create a User
+	 * end point	: /user
+	 * Response Body: {
+  						"code": 200,
+  						"type": "unknown",
+  						"message": "9223372036854775807"
+}
+	*/
 	
 	@Test
 	public void CreatePetStoreUser()
@@ -29,7 +36,6 @@ public class CreatePetStoreUser {
 				
 				
 		File jsonFile = new File("./src/test/java/testData/Create_user.json");
-
 		RequestSpecification requestSpec = RestAssured.given();
 		requestSpec.baseUri("https://petstore.swagger.io");
 		requestSpec.basePath("/v2/user");
