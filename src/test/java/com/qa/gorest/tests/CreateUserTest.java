@@ -10,8 +10,9 @@ import static org.hamcrest.Matchers.*;
 import com.qa.gorest.base.BaseTest;
 import com.qa.gorest.client.RestClient;
 import com.qa.gorest.constants.APIHttpStatus;
+import com.qa.gorest.constants.ApiConstants;
 import com.qa.gorest.pojo.User;
-
+import com.qa.gorest.utils.ExcelUtils;
 import com.qa.gorest.utils.StringUtils;
 
 public class CreateUserTest extends BaseTest {
@@ -29,9 +30,14 @@ public class CreateUserTest extends BaseTest {
 								{ "Shyam", "male", "active" },
 								{ "Supria", "female", "inactive" } };
 	}
+	
+	@DataProvider
+	public Object[][] getUsersSheetData() {
+		return ExcelUtils.getTestData(ApiConstants.GOREST_USER_SHEET_NAME);
+	}
 
 	
-	@Test(dataProvider="getUsersData")
+	@Test(dataProvider="getUsersSheetData")
 	public void createUserSheetTest(String name,String gender,String status) {
 		User user = new User(name, StringUtils.getRandomEmailId(), gender, status);
 
