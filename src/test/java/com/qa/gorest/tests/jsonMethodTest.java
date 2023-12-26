@@ -1,6 +1,6 @@
 package com.qa.gorest.tests;
 
-<<<<<<< HEAD
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -60,16 +60,7 @@ public class jsonMethodTest {
 //		JsonPath jResPath = new JsonPath(jsonResponseString);
 //		String id = jResPath.getString("id");
 //		//System.out.println(id);
-=======
-//
-//public class jsonMethodTest {
-//	
-//	@Test()
-//	public void readJsonData()
-//	{
->>>>>>> 3d9f812893a9f2bc504d5b179e158435c58e536f
-//		
-<<<<<<< HEAD
+
 //		//Get Available pets
 //		RequestSpecification reSpec = RestAssured.given()
 //				.baseUri("https://petstore.swagger.io")
@@ -208,7 +199,7 @@ public class jsonMethodTest {
 //	}
 //		
 //}
-=======
+
 //		String category_id = jResPath.getString("category.id");
 //		//System.out.println(category_id);
 //	l	
@@ -304,4 +295,4 @@ public class jsonMethodTest {
 	}
 		
 }
->>>>>>> 2138f10ff52eaa3fceca7d64650cfb87c2b50b79
+
