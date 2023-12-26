@@ -3,8 +3,15 @@
 
 <suite name="Api Regression Suite" thread-count="1" parallel="tests" verbose="4">
 
+	<test name="Go Rest API Test">
+		<parameter name="baseURI" value="https://gorest.co.in" />
+		<classes>
+			<class name="com.qa.gorest.tests.GetUserTest" />
+		</classes>
 
-	<test name="Cicuit API Test">
+	</test>
+
+	<!--test name="Cicuit API Test">
 		<parameter name="baseURI" value="https://ergast.com/" />
 
 		<classes>
@@ -13,13 +20,7 @@
 
 	</test>
 
-	<!--test name="Go Rest API Test">
-		<parameter name="baseURI" value="https://gorest.co.in" />
-		<classes>
-			<class name="com.qa.gorest.tests.GetUserTest" />
-		</classes>
-
-	</test>
+	
 
 
 	<test name="Go Rest API Create user Test">

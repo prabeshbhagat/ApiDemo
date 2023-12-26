@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import com.qa.gorest.base.BaseTest;
 import com.qa.gorest.client.RestClient;
 import com.qa.gorest.constants.APIHttpStatus;
-import com.qa.test.utils.JsonPathValidatorTest;
+import com.qa.gorest.utils.JsonPathValidatorTest;
 
 import io.restassured.response.Response;
 
