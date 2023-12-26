@@ -62,14 +62,14 @@ public class jsonMethodTest {
 		ResponseBody responseBody = response.getBody();
 		String jsonResponseString = responseBody.asString();
 
-		JsonPath jResPath = new JsonPath(jsonResponseString);
-		String id = jResPath.getString("id");
-		//System.out.println(id);
-		
-		String category_id = jResPath.getString("category.id");
-		//System.out.println(category_id);
-		
-		String category_name = jResPath.getString("category.name");
+//		JsonPath jResPath = new JsonPath(jsonResponseString);
+//		String id = jResPath.getString("id");
+//		//System.out.println(id);
+//		
+//		String category_id = jResPath.getString("category.id");
+//		//System.out.println(category_id);
+//		
+//		String category_name = jResPath.getString("category.name");
 		//System.out.println(category_name);
 		
 		List<Long> idList = response.jsonPath().getList("id");

@@ -1,7 +1,11 @@
 package com.qa.gorest.client;
 
+import static io.restassured.RestAssured.given;
+
 import java.util.Map;
 import java.util.Properties;
+
+
 
 import com.qa.gorest.frameworkException.ApiFrameworkException;
 
@@ -32,6 +36,7 @@ public class RestClient {
 //	static {
 //		
 //	}
+	
 
 	private void addAuthrizationHeader() {
 		// bearer token code added in s2
@@ -211,5 +216,33 @@ public class RestClient {
 		}
 		RestAssured.given(createRequestSpec(includeAuth)).when().delete(serviceUrl);
 	}
+	
+	//Oauth 2.0
+	public String getAccessToken(String serviceUrl,String grantType,String clientId,String clientSecret) {
+		
+		RestAssured.baseURI="https://test.api.amadeus.com";
+		
+		 String token_id=given().log().all()
+				.formParam("grant_type", grantType)
+				.formParam("client_id", clientId)
+				.formParam("client_secret", clientSecret)
+			.when()
+				.post(serviceUrl)
+			.then()
+				.assertThat()
+					.statusCode(200)
+				.extract()
+					.path("access_token");			
+			System.out.println("token_id=="+token_id);
+			return token_id;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 
 }

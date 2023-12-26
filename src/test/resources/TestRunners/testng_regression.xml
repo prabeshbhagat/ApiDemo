@@ -4,42 +4,6 @@
 <suite name="Api Regression Suite" thread-count="1" parallel="tests" verbose="4">
 
 
-	 <test name="Go Rest API Test">
-		<parameter name="baseURI" value="https://gorest.co.in" />
-		<classes>
-			<class name="com.qa.gorest.tests.GetUserTest" />
-		</classes>
-
-	</test>
-	
-	<test name="Fakestore API Get Products Test">
-		<parameter name="baseURI" value="https://fakestoreapi.com" />
-
-		<classes>
-			<class name="com.qa.gorest.tests.GetFakeStoreTest" />
-		</classes>
-
-	</test>
-
-
-	<!--test name="Go Rest API Create user Test">
-		<parameter name="baseURI" value="https://gorest.co.in" />
-
-		<classes>
-			<class name="com.qa.gorest.tests.CreateUserTest" />
-		</classes>
-
-	</test> 
-	
-	<test name="Fakestore API Get Products Test">
-		<parameter name="baseURI" value="https://fakestoreapi.com" />
-
-		<classes>
-			<class name="com.qa.gorest.tests.GetFakeStoreTest" />
-		</classes>
-
-	</test>
-	
 	<test name="Cicuit API Test">
 		<parameter name="baseURI" value="https://ergast.com/" />
 
@@ -48,7 +12,56 @@
 		</classes>
 
 	</test>
+
+	<!--test name="Go Rest API Test">
+		<parameter name="baseURI" value="https://gorest.co.in" />
+		<classes>
+			<class name="com.qa.gorest.tests.GetUserTest" />
+		</classes>
+
+	</test>
+
+
+	<test name="Go Rest API Create user Test">
+		<parameter name="baseURI" value="https://gorest.co.in" />
+
+		<classes>
+			<class name="com.qa.gorest.tests.CreateUserTest" />
+		</classes>
+
+	</test>
+
+
+	<test name="Amadeus Oauth2 API Test">
+		<parameter name="baseURI" value="https://test.api.amadeus.com" />
+		<parameter name="grantType" value="client_credentials" />
+		<parameter name="clientId" value="5KAP1LGPjN7EybUWBSGgFADSqB5LfBeE" />
+		<parameter name="clientSecret" value="Nf49H0qmE1JT2aYn" />
+
+		<classes>
+			<class name="com.qa.gorest.tests.AmadeusAPITest" />
+		</classes>
+
+	</test>
+
+	<test name="Fakestore API Get Products Test">
+		<parameter name="baseURI" value="https://fakestoreapi.com" />
+
+		<classes>
+			<class name="com.qa.gorest.tests.GetFakeStoreTest" />
+		</classes>
+
+	</test>
+
+
+
 	
+	
+
+
+
+
+
 	<test name="ReqRes API Test">
 		<parameter name="baseURI" value="https://reqres.in" />
 
@@ -56,7 +69,7 @@
 			<class name="com.qa.gorest.tests.ReqResAPITest" />
 		</classes>
 
-	</test>-->
+	</test-->
 
 
 </suite>

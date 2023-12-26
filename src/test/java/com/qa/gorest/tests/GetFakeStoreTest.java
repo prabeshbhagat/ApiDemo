@@ -1,33 +1,48 @@
 package com.qa.gorest.tests;
 
+import java.util.List;
+import java.util.Map;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.qa.gorest.base.BaseTest;
 import com.qa.gorest.client.RestClient;
+import com.qa.gorest.constants.APIHttpStatus;
+import com.qa.gorest.utils.JsonPathValidatorTest;
+
+import io.restassured.response.Response;
 
 
 public class GetFakeStoreTest extends BaseTest {
 	
-//	@BeforeMethod
-//	public void setUp() {
-//		restClient= new RestClient(prop, baseURI);
-//	}
+	@BeforeMethod
+	public void setUp() {
+		restClient= new RestClient(prop, baseURI);
+	}
 	
 	@Test
 	public void GetFakeStoreProductsTest() {	
-		restClient.get("/products", false, true)
+		restClient.get(FAKESTORE_ENDPOINT, false, true)
 		.then().log().all()
 		.assertThat()
-		.statusCode(200);
+		.statusCode(APIHttpStatus.OK_200.getCode());
 	}
 	
 	@Test
 	public void GetFakeStoreProductsCategoriesTest() {	
-		restClient.get("/products"+"/categories", false, true)
+		restClient.get(FAKESTORE_ENDPOINT+"/categories", false, true)
 		.then().log().all()
 		.assertThat()
-		.statusCode(200);
+		.statusCode(APIHttpStatus.OK_200.getCode());
+	}
+	
+	@Test
+	public void GetFakeStorePriceCategoriesTest() {	
+		Response jsonResponse=restClient.get(FAKESTORE_ENDPOINT+"/categories", false, true);
+		JsonPathValidatorTest js=new JsonPathValidatorTest();				
+		List<Map<String,Object>> priceCategory=js.readMapList(jsonResponse, "$[?(@.price<=50)][\"price\",\"category\"]");
+		System.out.println(priceCategory);
 	}
 
 }
