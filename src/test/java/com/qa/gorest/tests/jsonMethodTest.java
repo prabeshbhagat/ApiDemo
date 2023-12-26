@@ -1,11 +1,73 @@
 package com.qa.gorest.tests;
 
+<<<<<<< HEAD
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+
+import org.testng.annotations.Test;
+
+import com.jayway.jsonpath.JsonPath;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+
+public class jsonMethodTest {
+	
+	@Test()
+	public void readJsonData()
+	{
+		
+		//Get Available pets
+		RequestSpecification reSpec = RestAssured.given()
+				.baseUri("https://petstore.swagger.io")
+				.basePath("v2/pet/findByStatus")
+				.param("status", "available")
+				.accept(ContentType.JSON);
+		
+		
+		/*
+		Response resBody = reSpec.get();
+		//To print available data
+		System.out.println(resBody.asPrettyString());
+	*/	
+		//Get Sold pets
+		/*
+		RequestSpecification reSpec = RestAssured.given()
+				.baseUri("https://petstore.swagger.io")
+				.basePath("v2/pet/findByStatus")
+				.param("status", "sold")
+				.accept(ContentType.JSON);
+		*/
+		
+		
+		Response response = reSpec.get();
+		//ResponseBody responseBody = response.getBody();
+		//String jsonResponseString = responseBody.asString();
+		String responseAsString = response.asString();
+		
+		//Get Id data
+		List<String> idList = JsonPath.read(responseAsString, "$.[*].id");
+		System.out.println("List of Ids : "+idList);
+		
+		//Get Name Data
+		List<String> nameList = JsonPath.read(responseAsString, "$.[*].name");
+		System.out.println("List of Names : "+nameList);
+
+
+//		JsonPath jResPath = new JsonPath(jsonResponseString);
+//		String id = jResPath.getString("id");
+//		//System.out.println(id);
+=======
 //
 //public class jsonMethodTest {
 //	
 //	@Test()
 //	public void readJsonData()
 //	{
+>>>>>>> 3d9f812893a9f2bc504d5b179e158435c58e536f
 //		
 <<<<<<< HEAD
 //		//Get Available pets
@@ -160,13 +222,7 @@ package com.qa.gorest.tests;
 		//Get category Name
 		List<String> CategoryNameList = JsonPath.read(responseAsString, "$.[*].category.name");
 		//System.out.println(CategoryNameList);
-<<<<<<< HEAD
-	
-=======
-		
 
-		
->>>>>>> 90e0c1cc19460efd4c23de27938912b40a3f8fdf
 		System.out.println("Count of collected records => "+idList.size());
 		
 			

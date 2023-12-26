@@ -12,7 +12,7 @@ import com.qa.gorest.client.RestClient;
 import com.qa.gorest.constants.APIHttpStatus;
 import com.qa.gorest.constants.ApiConstants;
 import com.qa.gorest.pojo.User;
-import com.qa.gorest.utils.ExcelUtils;
+
 import com.qa.gorest.utils.StringUtils;
 
 public class CreateUserTest extends BaseTest {
@@ -31,10 +31,7 @@ public class CreateUserTest extends BaseTest {
 								{ "Supria", "female", "inactive" } };
 	}
 	
-	@DataProvider
-	public Object[][] getUsersSheetData() {
-		return ExcelUtils.getTestData(ApiConstants.GOREST_USER_SHEET_NAME);
-	}
+
 
 	
 	@Test(dataProvider="getUsersSheetData")
