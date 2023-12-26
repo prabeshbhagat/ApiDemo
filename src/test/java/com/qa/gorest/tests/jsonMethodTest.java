@@ -59,9 +59,19 @@ public class jsonMethodTest {
 		
 		
 		Response response = reSpec.get();
-		ResponseBody responseBody = response.getBody();
-		String jsonResponseString = responseBody.asString();
+		//ResponseBody responseBody = response.getBody();
+		//String jsonResponseString = responseBody.asString();
+		String responseAsString = response.asString();
+		
+		//Get Id data
+		List<String> idList = JsonPath.read(responseAsString, "$.[*].id");
+		System.out.println("List of Ids : "+idList);
+		
+		//Get Name Data
+		List<String> nameList = JsonPath.read(responseAsString, "$.[*].name");
+		System.out.println("List of Names : "+nameList);
 
+<<<<<<< HEAD
 //		JsonPath jResPath = new JsonPath(jsonResponseString);
 //		String id = jResPath.getString("id");
 //		//System.out.println(id);
@@ -71,14 +81,20 @@ public class jsonMethodTest {
 //		
 //		String category_name = jResPath.getString("category.name");
 		//System.out.println(category_name);
+=======
+		//Get Category ids	
+		List<String> CategoryIdList = JsonPath.read(responseAsString, "$.[*].category.id");
+		//System.out.println(CategoryIdList);
 		
-		List<Long> idList = response.jsonPath().getList("id");
-		//System.out.println(idList);
+		//Get category Name
+		List<String> CategoryNameList = JsonPath.read(responseAsString, "$.[*].category.name");
+		//System.out.println(CategoryNameList);
+		
+>>>>>>> 5476132f02a4e38a27aff431ebdc8b48d1ce5e88
+		
 		System.out.println("Count of collected records => "+idList.size());
 		
-		List<String> CategoryNameList = response.jsonPath().getList("category.name");
-		System.out.println(CategoryNameList);
-		
+			
 		if(CategoryNameList.contains("Jerry"))
 		{
 			System.out.println("Item found.");
@@ -101,17 +117,17 @@ public class jsonMethodTest {
 		}
 		
 		//Find duplicate names
-		for(int i=0;i<idList.size();i++)
-			for(int j=i+1;j<idList.size();j++)
+		for(int i=0;i<nameList.size();i++)
+			for(int j=i+1;j<nameList.size();j++)
 			{
 				
-				if(idList.get(i).equals((Number) idList.get(j).longValue()))
+				if(nameList.get(i) == (nameList.get(j)))
 				{
-					System.out.println("Duplicate elemnts are : "+idList.get(j));
+					System.out.println("Duplicate elemnts are : "+nameList.get(j));
 				}
 				else
 				{
-					System.out.println("No Dupicate element found.");
+					//System.out.println("No Dupicate element found.");
 				}
 			}
 		
@@ -131,10 +147,29 @@ public class jsonMethodTest {
 		//System.out.println(ResponseInString);
 		
 		List<String> CategoryNames = JsonPath.read(ResponseInString, "$[*].category.name");
-		System.out.println(CategoryNames);
+		//System.out.println(CategoryNames);
+		for(String e:CategoryNames) {
+			{
+				//System.out.println(e);
+			}
+		}
+		//System.out.println(CategoryNames);
 		
-		
-		
+		//Get category Name
+		//jason path Working Example=> $.[*].category.id,name
+		List<Map<String,Object>> CategoryList = JsonPath.read(ResponseInString, "$.[*].category[\"id\",\"name\"]");
+		System.out.println(CategoryList);
+		System.out.println("=========================================");
+		for(Map e1:CategoryList) {
+			
+			Object idValue= e1.get("id");
+			String nameValue=(String) e1.get("name");
+			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&");
+			System.out.println("idValue is "+idValue);
+			System.out.println("nameValue is "+nameValue);
+			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&");
 		
 	}
+	}
+		
 }
