@@ -71,7 +71,7 @@ public class jsonMethodTest {
 		List<String> nameList = JsonPath.read(responseAsString, "$.[*].name");
 		System.out.println("List of Names : "+nameList);
 
-<<<<<<< HEAD
+
 //		JsonPath jResPath = new JsonPath(jsonResponseString);
 //		String id = jResPath.getString("id");
 //		//System.out.println(id);
@@ -81,7 +81,7 @@ public class jsonMethodTest {
 //		
 //		String category_name = jResPath.getString("category.name");
 		//System.out.println(category_name);
-=======
+
 		//Get Category ids	
 		List<String> CategoryIdList = JsonPath.read(responseAsString, "$.[*].category.id");
 		//System.out.println(CategoryIdList);
@@ -89,9 +89,7 @@ public class jsonMethodTest {
 		//Get category Name
 		List<String> CategoryNameList = JsonPath.read(responseAsString, "$.[*].category.name");
 		//System.out.println(CategoryNameList);
-		
->>>>>>> 5476132f02a4e38a27aff431ebdc8b48d1ce5e88
-		
+	
 		System.out.println("Count of collected records => "+idList.size());
 		
 			
