@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qa.gorest.client.RestClient;
+import com.qa.test.utils.JsonPathValidator;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -101,6 +102,10 @@ public class CreatePetStoreUser {
 		Assert.assertEquals(response.getStatusCode(),HttpStatus.SC_OK,"Record Deleted.");
 		Assert.assertEquals(response.statusCode(), 200,"Record Deleted.");
 		System.out.println("Response Body After record delete "+response.body().asPrettyString());
+		JsonPathValidator js= new JsonPathValidator();
+		String messagePostDelete=js.read(response, "$.message");
+		System.out.println(messagePostDelete);
+		Assert.assertEquals(messagePostDelete, "TestPetStoreUser_updated");
 		
 	}
 }

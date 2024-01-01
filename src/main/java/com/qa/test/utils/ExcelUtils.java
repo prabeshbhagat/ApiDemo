@@ -30,9 +30,7 @@ public class ExcelUtils {
 					data[i][j]=sheet.getRow(i+1).getCell(j).toString();
 				}
 			}
-			
-	
-			
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
