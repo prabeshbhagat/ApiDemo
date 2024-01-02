@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import com.qa.gorest.base.BaseTest;
 import com.qa.gorest.client.RestClient;
 import com.qa.gorest.constants.APIHttpStatus;
-import com.qa.gorest.utils.JsonPathValidatorTest;
+import com.qa.test.utils.JsonPathValidator;
 
 import io.restassured.response.Response;
 
@@ -31,7 +31,7 @@ public class circuitTest extends BaseTest {
 	@Test
 	public void getCountryCircuitTest() {
 		Response circuitResponse=restClient.get(CIRCUIT_ENDPOINT+"/2019/circuits.json", false, true);
-		JsonPathValidatorTest js=new JsonPathValidatorTest();
+		JsonPathValidator js=new JsonPathValidator();
 		List<String> countryList=js.readList(circuitResponse, "$..Circuits..country");
 		System.out.println(countryList);
 		Assert.assertTrue(countryList.contains("Bahrain"));
@@ -41,8 +41,8 @@ public class circuitTest extends BaseTest {
 	@Test
 	public void getLocalityLongitudeCircuitTest() {
 		Response circuitResponse=restClient.get(CIRCUIT_ENDPOINT+"/2019/circuits.json", false, true);
-		JsonPathValidatorTest js=new JsonPathValidatorTest();
-		List<Map<String,Object>> countryList=js.readMapList(circuitResponse, "$..Circuits[*].[\"circuitId\",\"circuitName\"]");
+		JsonPathValidator js=new JsonPathValidator();
+		List<Map<String,Object>> countryList=js.readListOfMaps(circuitResponse, "$..Circuits[*].[\"circuitId\",\"circuitName\"]");
 		System.out.println(countryList);
 			
 	}

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import com.qa.gorest.base.BaseTest;
 import com.qa.gorest.client.RestClient;
 import com.qa.gorest.constants.APIHttpStatus;
-import com.qa.gorest.utils.JsonPathValidatorTest;
+import com.qa.test.utils.JsonPathValidator;
 
 import io.restassured.response.Response;
 
@@ -40,8 +40,8 @@ public class GetFakeStoreTest extends BaseTest {
 	@Test
 	public void GetFakeStorePriceCategoriesTest() {	
 		Response jsonResponse=restClient.get(FAKESTORE_ENDPOINT+"/categories", false, true);
-		JsonPathValidatorTest js=new JsonPathValidatorTest();				
-		List<Map<String,Object>> priceCategory=js.readMapList(jsonResponse, "$[?(@.price<=50)][\"price\",\"category\"]");
+		JsonPathValidator js=new JsonPathValidator();				
+		List<Map<String,Object>> priceCategory=js.readListOfMaps(jsonResponse, "$[?(@.price<=50)][\"price\",\"category\"]");
 		System.out.println(priceCategory);
 	}
 

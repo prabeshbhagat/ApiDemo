@@ -3,11 +3,11 @@
 
 <suite name="Api Regression Suite" thread-count="1" parallel="tests" verbose="4">
 
-	<test name="Go Rest API Create user Test">
-		<parameter name="baseURI" value="https://gorest.co.in" />
+	<test name="Petstore API Create user Test">
+		<parameter name="baseURI" value="https://petstore.swagger.io" />
 
 		<classes>
-			<class name="com.qa.gorest.tests.CreateUserTest" />
+			<class name="com.qa.gorest.tests.PetstoreApiTest" />
 		</classes>
 
 	</test>
@@ -25,6 +25,15 @@
 		<parameter name="baseURI" value="https://gorest.co.in" />
 		<classes>
 			<class name="com.qa.gorest.tests.GetUserTest" />
+		</classes>
+
+	</test>
+	
+	<test name="Go Rest API Create user Test">
+		<parameter name="baseURI" value="https://gorest.co.in" />
+
+		<classes>
+			<class name="com.qa.gorest.tests.CreateUserTest" />
 		</classes>
 
 	</test>

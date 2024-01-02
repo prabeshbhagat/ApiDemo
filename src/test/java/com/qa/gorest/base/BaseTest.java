@@ -19,6 +19,7 @@ public class BaseTest {
 	public static final String AMADEUS_FLIGHTAPI_ENDPOINT="/v1/shopping/flight-destinations";
 	public static final String FAKESTORE_ENDPOINT="/products";
 	public static final String REQRES_ENDPOINT="/api/users";
+	public static final String PETSTORE_ENDPOINT="/v2/user";
 	
 	
 	protected ConfigurationManager config;
