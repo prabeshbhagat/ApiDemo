@@ -6,8 +6,8 @@ import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.qa.gorest.client.RestClient;
-import com.qa.test.utils.JsonPathValidator;
+import com.qa.app.client.RestClient;
+import com.qa.app.utils.JsonPathValidator;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

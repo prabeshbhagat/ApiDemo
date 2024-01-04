@@ -5,8 +5,8 @@ import java.util.Properties;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
-import com.qa.gorest.client.RestClient;
-import com.qa.gorest.configurations.ConfigurationManager;
+import com.qa.app.client.RestClient;
+import com.qa.app.configurations.ConfigurationManager;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
@@ -19,7 +19,7 @@ public class BaseTest {
 	public static final String AMADEUS_FLIGHTAPI_ENDPOINT="/v1/shopping/flight-destinations";
 	public static final String FAKESTORE_ENDPOINT="/products";
 	public static final String REQRES_ENDPOINT="/api/users";
-	public static final String PETSTORE_ENDPOINT="/v2/user";
+	public static final String PETSTORE_USER_ENDPOINT="/v2/user";
 	
 	
 	protected ConfigurationManager config;
@@ -27,6 +27,7 @@ public class BaseTest {
 	protected Properties prop;
 	protected String baseURI;
 	
+	/*
 	@Parameters({"baseURI"})
 	@BeforeTest
 	public void setUp(String baserURI) {
@@ -36,9 +37,18 @@ public class BaseTest {
 		config= new ConfigurationManager();
 		prop=config.initProp();
 		this.baseURI=baserURI;
-		//restClient= new RestClient(prop, baserURI);	
+		restClient= new RestClient(prop, baserURI);	
 		System.out.println(baseURI);
 	}
-	
-	
+	*/
+	public BaseTest()
+	{
+		RestAssured.filters(new AllureRestAssured());//allure report
+		
+		config= new ConfigurationManager();
+		prop=config.initProp();
+		baseURI=prop.getProperty("baseURI");
+		restClient= new RestClient(prop, baseURI);	
+		System.out.println(baseURI);
+	}
 }

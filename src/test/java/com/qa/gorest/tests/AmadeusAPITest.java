@@ -7,8 +7,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.qa.app.client.RestClient;
 import com.qa.gorest.base.BaseTest;
-import com.qa.gorest.client.RestClient;
 import com.qa.gorest.constants.APIHttpStatus;
 
 import io.restassured.path.json.JsonPath;

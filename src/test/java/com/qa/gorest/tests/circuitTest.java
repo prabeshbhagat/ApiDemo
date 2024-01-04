@@ -7,11 +7,11 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.qa.app.client.RestClient;
+import com.qa.app.utils.JsonPathValidator;
 //import com.jayway.jsonpath.JsonPath;
 import com.qa.gorest.base.BaseTest;
-import com.qa.gorest.client.RestClient;
 import com.qa.gorest.constants.APIHttpStatus;
-import com.qa.test.utils.JsonPathValidator;
 
 import io.restassured.response.Response;
 

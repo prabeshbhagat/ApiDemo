@@ -1,13 +1,11 @@
-package com.qa.gorest.client;
+package com.qa.app.client;
 
 import static io.restassured.RestAssured.given;
 
 import java.util.Map;
 import java.util.Properties;
 
-
-
-import com.qa.gorest.frameworkException.ApiFrameworkException;
+import com.qa.app.frameworkException.ApiFrameworkException;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;

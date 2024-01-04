@@ -7,13 +7,13 @@ import org.testng.annotations.Test;
 
 import static org.hamcrest.Matchers.*;
 
+import com.qa.app.client.RestClient;
+import com.qa.app.pojo.User;
+import com.qa.app.utils.ExcelUtils;
+import com.qa.app.utils.StringUtils;
 import com.qa.gorest.base.BaseTest;
-import com.qa.gorest.client.RestClient;
 import com.qa.gorest.constants.APIHttpStatus;
 import com.qa.gorest.constants.ApiConstants;
-import com.qa.gorest.pojo.User;
-import com.qa.test.utils.ExcelUtils;
-import com.qa.test.utils.StringUtils;
 
 public class CreateUserTest extends BaseTest {
 	
