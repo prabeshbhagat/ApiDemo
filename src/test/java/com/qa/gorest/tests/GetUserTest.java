@@ -3,8 +3,8 @@ package com.qa.gorest.tests;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.qa.app.client.RestClient;
 import com.qa.gorest.base.BaseTest;
-import com.qa.gorest.client.RestClient;
 import com.qa.gorest.constants.APIHttpStatus;
 
 import static org.hamcrest.Matchers.*;

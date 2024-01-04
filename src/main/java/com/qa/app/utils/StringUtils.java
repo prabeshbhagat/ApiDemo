@@ -1,4 +1,4 @@
-package com.qa.test.utils;
+package com.qa.app.utils;
 
 public class StringUtils {
 	

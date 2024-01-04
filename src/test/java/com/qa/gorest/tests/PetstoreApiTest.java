@@ -6,14 +6,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.qa.app.client.RestClient;
+import com.qa.app.pojo.User;
+import com.qa.app.pojo.petStore_user;
+import com.qa.app.utils.ExcelUtils;
+import com.qa.app.utils.StringUtils;
 import com.qa.gorest.base.BaseTest;
-import com.qa.gorest.client.RestClient;
 import com.qa.gorest.constants.APIHttpStatus;
 import com.qa.gorest.constants.ApiConstants;
-import com.qa.test.pojo.petStore_user;
-import com.qa.test.pojo.User;
-import com.qa.test.utils.ExcelUtils;
-import com.qa.test.utils.StringUtils;
 
 public class PetstoreApiTest extends BaseTest {
 	
@@ -45,7 +45,7 @@ public class PetstoreApiTest extends BaseTest {
 		// post call
 		// comment in s3
 		
-		 int code=restClient.post(PETSTORE_ENDPOINT, "json", puser, false, true).then().log().all().assertThat()
+		 int code=restClient.post(PETSTORE_USER_ENDPOINT, "json", puser, false, true).then().log().all().assertThat()
 				.statusCode(APIHttpStatus.OK_200.getCode())
 				.and().extract().path("code");
 
@@ -53,7 +53,7 @@ public class PetstoreApiTest extends BaseTest {
 
 //		// get calling 
 		RestClient restClientGet= new RestClient(prop, baseURI);
-		restClientGet.get(PETSTORE_ENDPOINT+"/"+un, false, true).then().log().all().assertThat()
+		restClientGet.get(PETSTORE_USER_ENDPOINT+"/"+un, false, true).then().log().all().assertThat()
 			.statusCode(APIHttpStatus.OK_200.getCode()).and().body("username", equalTo(un));
 
 	}
@@ -66,7 +66,7 @@ public class PetstoreApiTest extends BaseTest {
 		// post call
 		// comment in s3
 		
-		 restClient.get(PETSTORE_ENDPOINT+"/ShaliniUN", false, true)
+		 restClient.get(PETSTORE_USER_ENDPOINT+"/ShaliniUN", false, true)
 		 			.then().log().all()
 		 			.assertThat()
 		 			.statusCode(APIHttpStatus.OK_200.getCode())

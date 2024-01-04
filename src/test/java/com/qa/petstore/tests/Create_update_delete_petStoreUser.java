@@ -4,9 +4,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.qa.app.client.RestClient;
+import com.qa.app.pojo.petStore_user;
 import com.qa.gorest.base.BaseTest;
-import com.qa.gorest.client.RestClient;
-import com.qa.test.pojo.petStore_user;
 
 import io.restassured.response.Response;
 
@@ -31,7 +31,7 @@ public class Create_update_delete_petStoreUser extends BaseTest {
 			String password, String phone, String userStatus)
 	{
 		petStore_user create_user_pojo = new petStore_user(username, firstName, lastName, email, password, phone, userStatus);
-		restClient.post(PETSTORE_ENDPOINT, "json", create_user_pojo, false, true)
+		restClient.post(PETSTORE_USER_ENDPOINT, "json", create_user_pojo, false, true)
 		.then().log().all()
 		.assertThat()
 		.statusCode(200);

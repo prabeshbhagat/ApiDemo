@@ -1,4 +1,4 @@
-package com.qa.test.utils;
+package com.qa.app.utils;
 
 import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;

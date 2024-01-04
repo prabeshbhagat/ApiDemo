@@ -1,4 +1,4 @@
-package com.qa.test.endpoints;
+package com.qa.app.endpoints;
 
 public class petStoreEndPoints {
 	

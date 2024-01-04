@@ -1,11 +1,11 @@
-package com.qa.test.utils;
+package com.qa.app.utils;
 
 import java.util.List;
 import java.util.Map;
 
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.PathNotFoundException;
-import com.qa.gorest.frameworkException.ApiFrameworkException;
+import com.qa.app.frameworkException.ApiFrameworkException;
 
 import io.restassured.response.Response;
 
