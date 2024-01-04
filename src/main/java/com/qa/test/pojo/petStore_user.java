@@ -1,4 +1,4 @@
-package com.qa.gorest.pojo;
+package com.qa.test.pojo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @JsonInclude(Include.NON_NULL)
-public class PUser {
+public class petStore_user {
 
 	@JsonProperty("id")
 	private String id;
@@ -40,7 +40,7 @@ public class PUser {
 	private String userStatus;
 
 
-	public PUser(String username, String firstName, String lastName, String email,
+	public petStore_user(String username, String firstName, String lastName, String email,
 			String password, String phone, String userStatus) {
 		this.username = username;
 		this.firstName = firstName;

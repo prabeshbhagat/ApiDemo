@@ -1,4 +1,4 @@
-package com.qa.gorest.pojo;
+package com.qa.test.pojo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

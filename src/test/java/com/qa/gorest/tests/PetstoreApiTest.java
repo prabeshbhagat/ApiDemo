@@ -10,8 +10,8 @@ import com.qa.gorest.base.BaseTest;
 import com.qa.gorest.client.RestClient;
 import com.qa.gorest.constants.APIHttpStatus;
 import com.qa.gorest.constants.ApiConstants;
-import com.qa.gorest.pojo.PUser;
-import com.qa.gorest.pojo.User;
+import com.qa.test.pojo.petStore_user;
+import com.qa.test.pojo.User;
 import com.qa.test.utils.ExcelUtils;
 import com.qa.test.utils.StringUtils;
 
@@ -40,7 +40,7 @@ public class PetstoreApiTest extends BaseTest {
 	
 	@Test(dataProvider="getUsersData" ,enabled=true)
 	public void createUserSheetTest(String un,String fn,String ln,String pwd,String mob,String status) {
-		PUser puser = new PUser(un,fn,ln, StringUtils.getRandomEmailId(), pwd, mob,status);
+		petStore_user puser = new petStore_user(un,fn,ln, StringUtils.getRandomEmailId(), pwd, mob,status);
 
 		// post call
 		// comment in s3
