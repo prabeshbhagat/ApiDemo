@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import com.qa.app.client.RestClient;
 import com.qa.app.pojo.PetStore_user;
-import com.qa.app.pojo.User;
+
 
 import com.qa.app.utils.ExcelUtils;
 import com.qa.app.utils.StringUtils;
@@ -32,7 +32,6 @@ public class PetstoreApiTest extends BaseTest {
 			{ "ShaliniUN", "Shalinifn", "Sharmaln", "pwd123", "mobile","0" },
 			 { "ShettaUN", "Shettafn", "Shettaln", "pwd123", "mobile","0" },
 			 { "RahulUN", "Rahulfn", "Rahulln", "pwd123", "mobile","0" }
-			
 		};
 		
 	}
@@ -53,16 +52,22 @@ public class PetstoreApiTest extends BaseTest {
 		// post call
 		// comment in s3
 		
-		 int code=restClient.post(PETSTORE_USER_ENDPOINT, "json", puser, false, true).then().log().all().assertThat()
-				.statusCode(APIHttpStatus.OK_200.getCode())
-				.and().extract().path("code");
 
+		 int code=restClient.post(PETSTORE_USER_ENDPOINT, "json", puser, false, true)
+				 .then().log().all()
+				 .assertThat()
+				 .statusCode(APIHttpStatus.OK_200.getCode())
+				 .and().extract().path("code");
+
+	
 		System.out.println("code :" + code);
 
 //		// get calling 
 		RestClient restClientGet= new RestClient(prop, baseURI);
+
 		restClientGet.get(PETSTORE_USER_ENDPOINT+"/"+un, false, true).then().log().all().assertThat()
 			.statusCode(APIHttpStatus.OK_200.getCode()).and().body("username", equalTo(un));
+
 
 	}
 	
@@ -71,12 +76,13 @@ public class PetstoreApiTest extends BaseTest {
 	
 	@Test(enabled=false)
 	public void getSingleUSerTest() {
-		
 
 		// post call
+
 		// comment in s3
 		
 		 restClient.get(PETSTORE_USER_ENDPOINT+"/ShaliniUN", false, true)
+
 		 			.then().log().all()
 		 			.assertThat()
 		 			.statusCode(APIHttpStatus.OK_200.getCode())

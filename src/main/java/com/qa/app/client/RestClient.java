@@ -42,9 +42,9 @@ public class RestClient {
 			specBuilder.addHeader("Authorization", "Bearer "+prop.getProperty("tokenId") );
 			isAuthorizationHeaderAdded = true;
 		}
-
 	}
-
+	
+	//get
 	private RequestSpecification createRequestSpec(boolean includeAuth) {
 		specBuilder.setBaseUri(baseURI);
 		if (includeAuth) {
