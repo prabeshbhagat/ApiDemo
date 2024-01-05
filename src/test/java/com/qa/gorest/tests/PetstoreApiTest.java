@@ -37,11 +37,12 @@ public class PetstoreApiTest extends BaseTest {
 		
 	}
 	
+	/*
 	@DataProvider
 	public Object[][] getUsersSheetData() {
 		return ExcelUtils.getTestData(ApiConstants.GOREST_USER_SHEET_NAME);
 	}
-	
+	*/
 	
 	@Test(dataProvider="getUsersData" ,enabled=true)
 	public void createUserSheetTest(String un,String fn,String ln,String pwd,String mob,String status) {

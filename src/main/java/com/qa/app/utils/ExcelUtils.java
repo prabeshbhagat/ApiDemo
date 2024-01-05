@@ -11,16 +11,16 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelUtils {
 	
-	private static final String TEST_DATA_SHEET_PATH="./src/test/resources/TestData/ApiTestData.xlsx";
+	//private static final String TEST_DATA_SHEET_PATH="./src/test/resources/testData/pet_store_user_data.xlsx";
 	private static Workbook book;
 	private static Sheet sheet;
 	
 	
-	public static Object[][]  getTestData(String sheetName) {
+	public static Object[][]  getTestData(String excelFilePath,String sheetName) {
 		Object data[][]=null;
 		
 		try {
-			FileInputStream ip = new FileInputStream(TEST_DATA_SHEET_PATH);
+			FileInputStream ip = new FileInputStream(excelFilePath);
 			book=WorkbookFactory.create(ip);
 			sheet=book.getSheet(sheetName);
 			data=new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
