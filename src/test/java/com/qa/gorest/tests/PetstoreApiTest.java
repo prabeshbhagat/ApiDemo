@@ -88,6 +88,7 @@ public class PetstoreApiTest extends BaseTest {
 		 			.statusCode(APIHttpStatus.OK_200.getCode())
 		 			.and()
 		 			.body("username", equalTo("ShaliniUN"));
+		 			
 				
 	// get calling 
 //		// RestClient restClientGet= new RestClient(prop, baseURI);
