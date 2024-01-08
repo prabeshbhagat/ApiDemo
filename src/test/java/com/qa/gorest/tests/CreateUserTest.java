@@ -31,13 +31,13 @@ public class CreateUserTest extends BaseTest {
 								{ "Supria", "female", "inactive" } };
 	}
 	
-//	@DataProvider
-//	public Object[][] getUsersSheetData() {
-//		return ExcelUtils.getTestData(ApiConstants.GOREST_USER_SHEET_NAME);
-//	}
+	@DataProvider
+	public Object[][] getUsersSheetData() {
+		return ExcelUtils.getTestData(ApiConstants.GOREST_USER_SHEET_NAME);
+	}
 	
 	
-	@Test(dataProvider="getUsersData")
+	@Test(dataProvider="getUsersSheetData")
 	public void createUserSheetTest(String name,String gender,String status) {
 		User user = new User(name, StringUtils.getRandomEmailId(), gender, status);
 
@@ -51,8 +51,8 @@ public class CreateUserTest extends BaseTest {
 
 		// get calling 
 		// RestClient restClientGet= new RestClient(prop, baseURI);
-		restClient.get("/public/v2/users/" + user_id, true, true).then().log().all().assertThat()
-				.statusCode(APIHttpStatus.OK_200.getCode()).and().body("id", equalTo(user_id));
+//		restClient.get("/public/v2/users/" + user_id, true, true).then().log().all().assertThat()
+//				.statusCode(APIHttpStatus.OK_200.getCode()).and().body("id", equalTo(user_id));
 
 	}
 

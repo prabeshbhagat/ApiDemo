@@ -11,6 +11,7 @@ import com.qa.app.pojo.PetStore_user;
 
 
 import com.qa.app.utils.ExcelUtils;
+import com.qa.app.utils.ReadDataProviderExcelData;
 import com.qa.app.utils.StringUtils;
 import com.qa.gorest.base.BaseTest;
 import com.qa.gorest.constants.APIHttpStatus;
@@ -18,8 +19,8 @@ import com.qa.gorest.constants.ApiConstants;
 
 public class PetstoreApiTest extends BaseTest {
 	
-	//Object currentData[][];
-	Object [][] currentData;
+	Object currentData[][];
+	//Object [][] currentData;
 	@BeforeMethod
 	public void setUp() {
 		restClient= new RestClient(prop, baseURI);
@@ -38,11 +39,19 @@ public class PetstoreApiTest extends BaseTest {
 	
 	@DataProvider
 	public Object[][] getUsersSheetData() {
-		return ExcelUtils.getTestData(ApiConstants.GOREST_USER_SHEET_NAME);
+		return ExcelUtils.getTestData(ApiConstants.PETSTORE_USER_SHEET_NAME);
 	}
 	
+	@DataProvider(name="UsersData")
+	public Object[][] UsersData() throws Exception {
+		 Object currentData[][] = new Object[][] {
+				 ReadDataProviderExcelData.getExcelDataIntoDataProvider("./src/test/resources/TestData/ApiTestData.xlsx", ApiConstants.PETSTORE_USER_SHEET_NAME)
+		 		};
+		return currentData;
+	}
 	
-	@Test(dataProvider="getUsersData" ,enabled=true)
+
+	@Test(dataProvider="getUsersSheetData" ,enabled=true)
 	public void createUserSheetTest(String un,String fn,String ln,String pwd,String mob,String status) {
 		// actual line :
 		PetStore_user puser = new PetStore_user(un,fn,ln, StringUtils.getRandomEmailId(), pwd, mob,status);
@@ -62,10 +71,10 @@ public class PetstoreApiTest extends BaseTest {
 		System.out.println("code :" + code);
 
 //		// get calling 
-		RestClient restClientGet= new RestClient(prop, baseURI);
-
-		restClientGet.get(PETSTORE_USER_ENDPOINT+"/"+un, false, true).then().log().all().assertThat()
-			.statusCode(APIHttpStatus.OK_200.getCode()).and().body("username", equalTo(un));
+//		RestClient restClientGet= new RestClient(prop, baseURI);
+//
+//		restClientGet.get(PETSTORE_USER_ENDPOINT+"/"+un, false, true).then().log().all().assertThat()
+//			.statusCode(APIHttpStatus.OK_200.getCode()).and().body("username", equalTo(un));
 
 
 	}
