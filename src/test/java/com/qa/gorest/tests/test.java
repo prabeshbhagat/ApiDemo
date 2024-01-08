@@ -21,8 +21,13 @@ public class test extends BaseTest{
 	}
 	
 	@DataProvider
+	public void test01() {
+		System.out.println("Test");
+	}
+	
+	@DataProvider
 	public Object[][] getUsersSheetData() {
-		return ExcelUtils.getTestData(ApiConstants.PETSTORE_USER_SHEET_NAME);
+		return ExcelUtils.getTestData("",ApiConstants.PETSTORE_USER_SHEET_NAME);
 	}
 	
 	/*
