@@ -4,6 +4,7 @@ package com.qa.app.pojo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.qa.app.utils.StringUtils;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,15 +43,18 @@ public class PetStore_user {
 
 
 	
-	public PetStore_user(String username, String firstName, String lastName, String email,
+	public PetStore_user(String username, String firstName, String lastName, String emailid,
 			String password, String phone, String userStatus) {
 		this.username = username;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.email = email;
+		//this.email = email;
+		this.email = StringUtils.getRandomEmailId();
 		this.password = password;
 		this.phone = phone;
 		this.userStatus = userStatus;
+		
+		System.out.println("Data ser are : "+username+">"+firstName+">"+lastName+">"+password+">"+phone+">"+userStatus);
 		
 	}
 	

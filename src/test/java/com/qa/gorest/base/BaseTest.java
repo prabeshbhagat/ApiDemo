@@ -41,6 +41,8 @@ public class BaseTest {
 		System.out.println(baseURI);
 	}
 	*/
+	
+	
 	public BaseTest()
 	{
 		RestAssured.filters(new AllureRestAssured());//allure report
@@ -51,4 +53,5 @@ public class BaseTest {
 		restClient= new RestClient(prop, baseURI);	
 		System.out.println(baseURI);
 	}
+	
 }

@@ -31,13 +31,14 @@ public class CreateUserTest extends BaseTest {
 								{ "Supria", "female", "inactive" } };
 	}
 	
-	@DataProvider
-	public Object[][] getUsersSheetData() {
-		return ExcelUtils.getTestData(ApiConstants.GOREST_USER_SHEET_NAME);
-	}
+//	@DataProvider
+//	public Object[][] getUsersSheetData() {
+//
+//		return ExcelUtils.getTestData(".src/test/resources/TestData/ApiTestData.xlsx",ApiConstants.GOREST_USER_SHEET_NAME);
+//	}
 	
 	
-	@Test(dataProvider="getUsersSheetData")
+	@Test(dataProvider="getUsersData")
 	public void createUserSheetTest(String name,String gender,String status) {
 		User user = new User(name, StringUtils.getRandomEmailId(), gender, status);
 

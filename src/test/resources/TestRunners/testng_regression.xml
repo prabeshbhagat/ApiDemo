@@ -4,7 +4,7 @@
 <suite name="Api Regression Suite" thread-count="1" parallel="tests" verbose="4">
 
 
-<test name="Go Rest API Create user Test">
+	<test name="Go Rest API Create user Test">
 		<parameter name="baseURI" value="https://gorest.co.in" />
 
 		<classes>

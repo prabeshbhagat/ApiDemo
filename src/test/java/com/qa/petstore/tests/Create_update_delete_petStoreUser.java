@@ -9,6 +9,8 @@ import com.qa.app.pojo.PetStore_user;
 import com.qa.app.utils.StringUtils;
 import com.qa.gorest.base.BaseTest;
 
+import io.restassured.response.Response;
+
 
 public class Create_update_delete_petStoreUser extends BaseTest {
 	
@@ -20,7 +22,8 @@ public class Create_update_delete_petStoreUser extends BaseTest {
 	
 	@DataProvider(name="UsersData")
 	public Object[][] UsersData() {
-		 Object currentData[][] = new Object[][] { { "ShettaUN", "Shettafn", "Shettaln", "pwd123", "mobile","0" },
+		 Object currentData[][] = new Object[][] { 
+			 { "ShaliniUN", "Shalinifn", "Sharmaln", "pwd123", "mobile","0" },
 			 { "ShettaUN", "Shettafn", "Shettaln", "pwd123", "mobile","0" },
 			 { "RahulUN", "Rahulfn", "Rahulln", "pwd123", "mobile","0" }
 			
@@ -32,12 +35,11 @@ public class Create_update_delete_petStoreUser extends BaseTest {
 
 	@Test(dataProvider = "UsersData")
 	//need to pass as object type parameter to avoid lot of parameter words
-	public void create_petStore_user(String username,String firstName,String lastName,String password,String phone,String userStatus)
+	public void create_petStore_user(String username,String firstName,String lastName,String email,String password,String phone,String userStatus)
 	{
-		PetStore_user create_user_pojo = new PetStore_user( username, firstName, lastName,StringUtils.getRandomEmailId(), password, phone, userStatus);
+		PetStore_user create_user_pojo_ob = new PetStore_user(username, firstName, lastName,StringUtils.getRandomEmailId(), password, phone, userStatus);
 		
-		//System.out.println("Data is "+create_user_pojo);
-		restClient.post(PETSTORE_USER_ENDPOINT, "json", create_user_pojo, false, true)
+		restClient.post(PETSTORE_USER_ENDPOINT, "json", create_user_pojo_ob, false, true)
 		.then().log().all()
 		.assertThat()
 		.statusCode(200);

@@ -11,7 +11,7 @@ import com.qa.app.pojo.PetStore_user;
 
 
 import com.qa.app.utils.ExcelUtils;
-import com.qa.app.utils.ReadDataProviderExcelData;
+
 import com.qa.app.utils.StringUtils;
 import com.qa.gorest.base.BaseTest;
 import com.qa.gorest.constants.APIHttpStatus;
@@ -37,18 +37,13 @@ public class PetstoreApiTest extends BaseTest {
 		
 	}
 	
+	
 	@DataProvider
 	public Object[][] getUsersSheetData() {
-		return ExcelUtils.getTestData(ApiConstants.PETSTORE_USER_SHEET_NAME);
+		return ExcelUtils.getTestData("./src/test/resources/testData/pet_store_user_data.xlsx",ApiConstants.PETSTORE_USER_SHEET_NAME);
 	}
-	
-	@DataProvider(name="UsersData")
-	public Object[][] UsersData() throws Exception {
-		 Object currentData[][] = new Object[][] {
-				 ReadDataProviderExcelData.getExcelDataIntoDataProvider("./src/test/resources/TestData/ApiTestData.xlsx", ApiConstants.PETSTORE_USER_SHEET_NAME)
-		 		};
-		return currentData;
-	}
+
+
 	
 
 	@Test(dataProvider="getUsersSheetData" ,enabled=true)
@@ -96,6 +91,7 @@ public class PetstoreApiTest extends BaseTest {
 		 			.statusCode(APIHttpStatus.OK_200.getCode())
 		 			.and()
 		 			.body("username", equalTo("ShaliniUN"));
+		 			
 				
 	// get calling 
 //		// RestClient restClientGet= new RestClient(prop, baseURI);
