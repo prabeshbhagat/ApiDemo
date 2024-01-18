@@ -39,13 +39,7 @@ public class CreateUserTest extends BaseTest {
 //	}
 	
 	
-	@Test()
-	public void Test() {
-		System.out.println("test01");
-		System.out.println("test02");
-		System.out.println("test03");
-		System.out.println("test04");
-	}
+
 
 	
 	
