@@ -28,6 +28,15 @@ public class circuitTest extends BaseTest {
 				.statusCode(APIHttpStatus.OK_200.getCode());
 	}
 	
+	
+	@Test()
+	public void Test() {
+		System.out.println("test01");
+		System.out.println("test02");
+		System.out.println("test03");
+		System.out.println("test04");
+	}
+	
 	@Test
 	public void getCountryCircuitTest() {
 		Response circuitResponse=restClient.get(CIRCUIT_ENDPOINT+"/2019/circuits.json", false, true);

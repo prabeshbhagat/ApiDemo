@@ -42,6 +42,16 @@ public class GetUserTest extends BaseTest  {
 				.body("id", equalTo(5371707));
 	}
 	
+	
+	
+	@Test()
+	public void Test() {
+		System.out.println("test01");
+		System.out.println("test02");
+		System.out.println("test03");
+		System.out.println("test04");
+	}
+	
 	//url?name?status
 	@Test(enabled=true,priority=1)
 	public void getUserWithQueryParamTest() {	

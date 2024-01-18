@@ -24,6 +24,7 @@ public class CreateUserTest extends BaseTest {
 	}
 	
 	
+	
 	@DataProvider
 	public Object[][] getUsersData() {
 		return new Object[][] { { "Shalini", "female", "active" },
@@ -36,6 +37,19 @@ public class CreateUserTest extends BaseTest {
 //
 //		return ExcelUtils.getTestData(".src/test/resources/TestData/ApiTestData.xlsx",ApiConstants.GOREST_USER_SHEET_NAME);
 //	}
+	
+	
+	@Test()
+	public void Test() {
+		System.out.println("test01");
+		System.out.println("test02");
+		System.out.println("test03");
+		System.out.println("test04");
+	}
+
+	
+	
+
 	
 	
 	@Test(dataProvider="getUsersData")
